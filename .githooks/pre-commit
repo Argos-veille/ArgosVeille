@@ -1,0 +1,9 @@
+#!/bin/sh
+# Bloque tout commit contenant un secret (clé, mot de passe, jeton).
+# Activation : git config core.hooksPath .githooks
+if ! command -v gitleaks >/dev/null 2>&1; then
+    echo "gitleaks n'est pas installé : commit bloqué par précaution." >&2
+    echo "Installation : sudo apt install gitleaks" >&2
+    exit 1
+fi
+exec gitleaks protect --staged --redact --verbose

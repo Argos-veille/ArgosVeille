@@ -1,0 +1,10 @@
+# Dépendances du worker vidéo (versions figées). Installation : .venv/bin/pip install -r requirements.txt
+psycopg[binary]==3.3.8
+opencv-python-headless==5.0.0.93
+numpy==2.5.4
+redis==8.1.0
+cryptography==50.0.2
+opentimestamps==0.4.5
+python-bitcoinlib==0.12.2
+pycryptodomex==3.24.1
+yt-dlp==2026.10.26

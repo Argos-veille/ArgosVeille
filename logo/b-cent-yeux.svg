@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="400" height="400">
+  <title>Argos Veille — cent yeux</title>
+  <rect width="200" height="200" fill="#ffffff"/>
+  <circle cx="100" cy="100" r="50" fill="none" stroke="#1F2328" stroke-width="2"/>
+  <!-- Œil central -->
+  <path d="M62 100 Q100 64 138 100 Q100 136 62 100 Z" fill="#1F2328"/>
+  <circle cx="100" cy="100" r="15" fill="#E8A33D"/>
+  <circle cx="100" cy="100" r="6" fill="#1F2328"/>
+  <!-- Couronne de petits yeux -->
+    <g transform="rotate(0 100 100) translate(100 32)">
+      <path d="M-13 0 Q0 -9 13 0 Q0 9 -13 0 Z" fill="#1F2328"/>
+      <circle r="3.6" fill="#E8A33D"/>
+    </g>
+    <g transform="rotate(30 100 100) translate(100 32)">
+      <path d="M-13 0 Q0 -9 13 0 Q0 9 -13 0 Z" fill="#1F2328"/>
+      <circle r="3.6" fill="#E8A33D"/>
+    </g>
+    <g transform="rotate(60 100 100) translate(100 32)">
+      <path d="M-13 0 Q0 -9 13 0 Q0 9 -13 0 Z" fill="#1F2328"/>
+      <circle r="3.6" fill="#E8A33D"/>
+    </g>
+    <g transform="rotate(90 100 100) translate(100 32)">
+      <path d="M-13 0 Q0 -9 13 0 Q0 9 -13 0 Z" fill="#1F2328"/>
+      <circle r="3.6" fill="#E8A33D"/>
+    </g>
+    <g transform="rotate(120 100 100) translate(100 32)">
+      <path d="M-13 0 Q0 -9 13 0 Q0 9 -13 0 Z" fill="#1F2328"/>
+      <circle r="3.6" fill="#E8A33D"/>
+    </g>
+    <g transform="rotate(150 100 100) translate(100 32)">
+      <path d="M-13 0 Q0 -9 13 0 Q0 9 -13 0 Z" fill="#1F2328"/>
+      <circle r="3.6" fill="#E8A33D"/>
+    </g>
+    <g transform="rotate(180 100 100) translate(100 32)">
+      <path d="M-13 0 Q0 -9 13 0 Q0 9 -13 0 Z" fill="#1F2328"/>
+      <circle r="3.6" fill="#E8A33D"/>
+    </g>
+    <g transform="rotate(210 100 100) translate(100 32)">
+      <path d="M-13 0 Q0 -9 13 0 Q0 9 -13 0 Z" fill="#1F2328"/>
+      <circle r="3.6" fill="#E8A33D"/>
+    </g>
+    <g transform="rotate(240 100 100) translate(100 32)">
+      <path d="M-13 0 Q0 -9 13 0 Q0 9 -13 0 Z" fill="#1F2328"/>
+      <circle r="3.6" fill="#E8A33D"/>
+    </g>
+    <g transform="rotate(270 100 100) translate(100 32)">
+      <path d="M-13 0 Q0 -9 13 0 Q0 9 -13 0 Z" fill="#1F2328"/>
+      <circle r="3.6" fill="#E8A33D"/>
+    </g>
+    <g transform="rotate(300 100 100) translate(100 32)">
+      <path d="M-13 0 Q0 -9 13 0 Q0 9 -13 0 Z" fill="#1F2328"/>
+      <circle r="3.6" fill="#E8A33D"/>
+    </g>
+    <g transform="rotate(330 100 100) translate(100 32)">
+      <path d="M-13 0 Q0 -9 13 0 Q0 9 -13 0 Z" fill="#1F2328"/>
+      <circle r="3.6" fill="#E8A33D"/>
+    </g>
+</svg>

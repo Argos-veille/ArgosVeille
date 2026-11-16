@@ -1,0 +1,221 @@
+/* Argos — système de design.
+   Sobre, lisible, une seule couleur d'accent (ambre) sur un fond clair par défaut ; mode sombre au
+   choix. Hiérarchie de site d'information : titres denses, barre d'accent, filets fins, peu
+   d'ombres. Contrastes vérifiés (WCAG AA au moins) : l'ambre pur ne sert jamais de couleur de texte
+   sur fond clair, on prend sa version foncée. */
+@import '@fontsource-variable/inter';
+
+:root {
+  color-scheme: light;
+  --fond: #f7f6f2;
+  --surface: #ffffff;
+  --surface-2: #f0efea;
+  --surface-3: #e7e5df;
+  --texte: #1f2328;
+  --texte-2: #474c54;
+  --texte-3: #646a73;
+  --trait: #dedcd5;
+  --trait-fort: #c4c1b8;
+  --accent: #e8a33d;               /* ambre du logo : barres, repères, focus */
+  --accent-texte: #8a5a12;         /* ambre foncé : liens et texte d'accent (6,1:1 sur blanc) */
+  --accent-doux: #fbefd9;
+  --sur-accent: #1f2328;
+  --primaire: #1f2328;             /* bouton principal */
+  --sur-primaire: #ffffff;
+  --danger: #b42318;
+  --danger-doux: #fdecea;
+  --succes: #1e7b4a;
+  --sur-succes: #ffffff;
+  --succes-doux: #e6f4ec;
+  --info: #2459a8;
+  --info-doux: #e8eff9;
+  --ombre: 0 1px 2px rgb(31 35 40 / 0.06), 0 4px 16px rgb(31 35 40 / 0.06);
+
+  --police: 'Inter Variable', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --police-mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  --rayon: 6px;
+  --rayon-grand: 10px;
+  --largeur: 72rem;
+  --largeur-texte: 46rem;        /* 736 px : largeur des blocs des pages de texte et de formulaires (Mon compte, Mes vidéos…) */
+}
+
+:root[data-theme='sombre'] {
+  color-scheme: dark;
+  --fond: #121417;
+  --surface: #191c20;
+  --surface-2: #20242a;
+  --surface-3: #2a2f36;
+  --texte: #ecedee;
+  --texte-2: #bfc3c9;
+  --texte-3: #959aa2;
+  --trait: #2d3239;
+  --trait-fort: #434951;
+  --accent: #e8a33d;
+  --accent-texte: #f0b45c;
+  --accent-doux: #3a2e1a;
+  --sur-accent: #1f2328;
+  --primaire: #e8a33d;
+  --sur-primaire: #1f2328;
+  --danger: #f97066;
+  --danger-doux: #3b1d1b;
+  --succes: #47c287;
+  --sur-succes: #0f2418;
+  --succes-doux: #17301f;
+  --info: #7cacf8;
+  --info-doux: #1a2638;
+  --ombre: 0 1px 2px rgb(0 0 0 / 0.3), 0 4px 16px rgb(0 0 0 / 0.25);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--fond);
+  color: var(--texte);
+  font-family: var(--police);
+  font-size: 1rem;
+  line-height: 1.55;
+  font-feature-settings: 'cv11', 'ss01';
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 { line-height: 1.2; letter-spacing: -0.015em; margin: 0 0 0.5em; }
+h1 { font-size: clamp(1.75rem, 1.2rem + 2vw, 2.5rem); font-weight: 750; }
+h2 { font-size: 1.375rem; font-weight: 700; }
+h3 { font-size: 1.0625rem; font-weight: 650; }
+p { margin: 0 0 1em; }
+small, .petit { font-size: 0.875rem; }
+.discret { color: var(--texte-3); }
+.second { color: var(--texte-2); }
+
+a { color: var(--accent-texte); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+
+code, kbd, .mono { font-family: var(--police-mono); font-size: 0.9em; }
+
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+
+.visuellement-cache {
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* --- Mise en page --------------------------------------------------------------------------- */
+
+.conteneur { width: 100%; max-width: var(--largeur); margin: 0 auto; padding: 0 1.25rem; }
+.etroit { max-width: 30rem; }
+.texte-long { max-width: var(--largeur-texte); }
+/* Page de texte : même cadre que les pages larges (alignée à gauche, sous le logo), blocs de 736 px. */
+.conteneur.texte-long { max-width: var(--largeur); }
+.conteneur.texte-long > * { max-width: var(--largeur-texte); }
+
+/* Surtitre à barre d'accent, à la manière des rubriques d'un site d'information */
+.surtitre {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--texte-2); margin-bottom: 0.75rem;
+}
+.surtitre::before { content: ''; width: 1.5rem; height: 3px; background: var(--accent); }
+
+.carte {
+  background: var(--surface); border: 1px solid var(--trait); border-radius: var(--rayon-grand);
+  padding: 1.5rem;
+}
+.carte + .carte { margin-top: 1rem; }
+
+hr { border: 0; border-top: 1px solid var(--trait); margin: 1.5rem 0; }
+
+/* --- Boutons ------------------------------------------------------------------------------- */
+
+.bouton {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  min-height: 2.5rem; padding: 0.5rem 1rem;
+  font: inherit; font-weight: 600; font-size: 0.9375rem; line-height: 1.2;
+  border-radius: var(--rayon); border: 1px solid var(--trait-fort);
+  background: var(--surface); color: var(--texte); cursor: pointer; text-decoration: none;
+  transition: background-color 0.12s, border-color 0.12s;
+}
+.bouton:hover { background: var(--surface-2); text-decoration: none; }
+.bouton:disabled, .bouton[aria-disabled='true'] { opacity: 0.55; cursor: not-allowed; }
+.bouton.principal { background: var(--primaire); border-color: var(--primaire); color: var(--sur-primaire); }
+.bouton.principal:hover { filter: brightness(1.12); }
+.bouton.valider { background: var(--succes); border-color: var(--succes); color: var(--sur-succes); font-weight: 600; }
+.bouton.valider:hover { filter: brightness(1.1); }
+.bouton.danger { color: var(--danger); border-color: color-mix(in srgb, var(--danger) 45%, transparent); }
+.bouton.danger:hover { background: var(--danger-doux); }
+.bouton.lien { border: 0; background: none; padding: 0.25rem 0; min-height: 0; color: var(--accent-texte); font-weight: 500; }
+.bouton.lien:hover { text-decoration: underline; }
+.bouton.pleine-largeur { width: 100%; }
+.boutons { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; margin-top: 1.25rem; }
+
+/* --- Formulaires --------------------------------------------------------------------------- */
+
+.champ { display: grid; gap: 0.375rem; margin-bottom: 1.125rem; align-content: start; }   /* pas étiré par un voisin plus haut */
+.champ > label, .etiquette { font-weight: 600; font-size: 0.9375rem; }
+.aide { font-size: 0.8125rem; color: var(--texte-3); }
+input[type='text'], input[type='password'], input[type='email'], input[type='tel'], input[type='url'], input[type='datetime-local'],
+input[type='date'], input[type='time'], input[type='number'], input[type='search'], input:not([type]),
+select, textarea {
+  width: 100%; font: inherit; color: var(--texte); background: var(--surface);
+  border: 1px solid var(--trait-fort); border-radius: var(--rayon); padding: 0.5625rem 0.75rem;
+  min-height: 2.625rem;
+}
+textarea { min-height: 7rem; resize: vertical; line-height: 1.5; }
+input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 0; border-color: var(--accent); }
+input[aria-invalid='true'] { border-color: var(--danger); }
+input:disabled, select:disabled, textarea:disabled { background: var(--surface-2); color: var(--texte-3); cursor: not-allowed; }
+.code-saisie { font-family: var(--police-mono); font-size: 1.375rem; letter-spacing: 0.3em; text-align: center; max-width: 12rem; }
+.case { display: flex; gap: 0.625rem; align-items: flex-start; margin: 0.5rem 0; }
+.case input { margin-top: 0.3rem; width: 1.0625rem; height: 1.0625rem; accent-color: var(--texte); flex: none; }
+
+/* --- Messages ------------------------------------------------------------------------------ */
+
+.message {
+  border-radius: var(--rayon); padding: 0.75rem 1rem; margin: 0 0 1rem;
+  border: 1px solid transparent; font-size: 0.9375rem;
+}
+.message.erreur { background: var(--danger-doux); border-color: color-mix(in srgb, var(--danger) 35%, transparent); color: var(--texte); }
+.message.erreur::before { content: '⚠ '; color: var(--danger); font-weight: 700; }
+.message.succes { background: var(--succes-doux); border-color: color-mix(in srgb, var(--succes) 35%, transparent); }
+.message.info { background: var(--info-doux); border-color: color-mix(in srgb, var(--info) 30%, transparent); }
+.message.attention { background: var(--accent-doux); border-color: color-mix(in srgb, var(--accent) 50%, transparent); }
+
+.pastille {
+  display: inline-block; font-size: 0.75rem; font-weight: 600; padding: 0.125rem 0.5rem;
+  border-radius: 999px; background: var(--surface-2); color: var(--texte-2); border: 1px solid var(--trait);
+}
+.pastille.accent { background: var(--accent-doux); color: var(--accent-texte); border-color: color-mix(in srgb, var(--accent) 45%, transparent); }
+.pastille.info { background: var(--info-doux); color: var(--info); border-color: var(--info); }
+.pastille.succes { background: var(--succes-doux); color: var(--succes); border-color: var(--succes); }
+.pastille.danger { background: var(--danger-doux); color: var(--danger); border-color: var(--danger); }
+
+/* --- Étapes -------------------------------------------------------------------------------- */
+
+.etapes { display: flex; gap: 0.5rem; list-style: none; padding: 0; margin: 0 0 1.5rem; font-size: 0.8125rem; }
+.etapes li { flex: 1; border-top: 3px solid var(--trait); padding-top: 0.375rem; color: var(--texte-3); }
+.etapes li.faite { border-color: var(--texte-2); color: var(--texte-2); }
+.etapes li.active { border-color: var(--accent); color: var(--texte); font-weight: 600; }
+
+/* --- Barre de progression avec chenillard (le travail continue même si le % ne bouge pas) --------- */
+.progression { position: relative; height: 10px; background: var(--surface-3); border-radius: 5px; overflow: hidden; }
+.progression > span { display: block; height: 100%; background: var(--accent); border-radius: 5px; transition: width 0.4s; }
+.progression.en-cours::after {
+  content: ''; position: absolute; inset: 0; width: 40%;
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.55), transparent);
+  animation: chenillard 1.4s ease-in-out infinite;
+}
+:root[data-theme='sombre'] .progression.en-cours::after { background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.3), transparent); }
+@keyframes chenillard { from { transform: translateX(-100%); } to { transform: translateX(250%); } }
+.point-actif { display: inline-block; width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--accent);
+               margin-right: 0.4rem; vertical-align: middle; animation: pulsation 1.2s ease-in-out infinite; }
+@keyframes pulsation { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.35; transform: scale(0.75); } }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+
+/* Test anti-robot Turnstile : invisible d'ordinaire ; s'il doit demander une action, il apparaît au centre. */
+.cadre-turnstile { position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 100; }
+.cadre-turnstile:empty { display: none; }

@@ -1,0 +1,39 @@
+# Mots interdits dans les pseudos (recherchés n'importe où dans le pseudo, après passage en minuscules,
+# retrait des accents et des séparateurs . _ -, et remplacement des chiffres « leet » : 0→o 1→i 3→e 4→a 5→s 7→t).
+# Un mot préfixé par « = » n'est refusé que s'il forme un mot entier du pseudo (séparé par . _ -) ou
+# le pseudo entier : « =pute » refuse « Pute_75 » mais pas « Computer ».
+# Liste de départ à compléter. Un mot par ligne, déjà sous cette forme.
+# Noms réservés (usurpation du site ou de la modération)
+admin
+argos
+moderat
+officiel
+support
+# Injures et propos haineux courants (FR / EN)
+connard
+connasse
+encule
+enfoire
+salope
+=pute
+batard
+=nique
+=fdp
+=ntm
+=pd
+tarlouze
+negro
+=negre
+bougnoul
+youpin
+bicot
+=nazi
+hitler
+fuck
+=shit
+=bitch
+nigger
+nigga
+faggot
+=cunt
+whore

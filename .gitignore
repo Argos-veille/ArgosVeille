@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+resultats/
+.db_password
+.env
+.env.moteur
+node_modules/
+# Tuiles de la carte (plusieurs Go) hors dépôt ; les contours de la France, eux, sont suivis.
+cartes/*
+!cartes/*.geojson
