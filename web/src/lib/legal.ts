@@ -16,6 +16,9 @@ export const EDITEUR = {
   directeurPublication: A_COMPLETER,
 };
 
+/** Dépôt public du code (licence AGPL), mis à jour à chaque version publiée. */
+export const CODE_SOURCE = 'https://github.com/Argos-veille/ArgosVeille';
+
 export const CONTACT = {
   mail: 'contact@argos-veille.fr',   // boîte Infomaniak (l'ancienne noreply@, renommée), sert aussi d'expéditeur des mails
 };

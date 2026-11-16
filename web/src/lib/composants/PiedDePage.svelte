@@ -1,6 +1,7 @@
 <script lang="ts">
   // Pied de page allégé (15 novembre 2026) : la devise, puis les liens « à propos ». Le reste est dans le menu (EnTete).
   import { dev } from '$app/env';
+  import { CODE_SOURCE } from '#lib/legal.ts';
   let { signaler }: { signaler: () => void } = $props();
 </script>
 
@@ -21,6 +22,8 @@
         <li><a href="/conditions">Conditions d’utilisation</a></li>
         <li><a href="/confidentialite">Confidentialité</a></li>
         <li><a href="/mentions-legales">Mentions légales</a></li>
+        <li><a href="/securite">Sécurité</a></li>
+        <li><a href={CODE_SOURCE} target="_blank" rel="noopener noreferrer">Code source ↗</a></li>
         <li><button class="bouton lien" onclick={signaler} data-trace="ouvrir signaler un bug">Signaler un bug</button></li>
       </ul>
     </nav>

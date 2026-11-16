@@ -5,6 +5,7 @@
 -->
 <script lang="ts">
   import SchemaVerification from '#lib/composants/SchemaVerification.svelte';
+  import { CODE_SOURCE } from '#lib/legal.ts';
 </script>
 
 <svelte:head><title>Livre blanc — Argos Veille</title></svelte:head>
@@ -117,6 +118,7 @@
         <tr><th scope="row"><a href="/transparence">Rapport de transparence</a></th><td>Chaque trimestre : envois, décisions, signalements, retraits, demandes des autorités, originaux transmis</td></tr>
         <tr><th scope="row"><a href="/journal">Journal public</a></th><td>Chaque décision et chaque retrait, impossible à réécrire sans que cela se voie</td></tr>
         <tr><th scope="row">Intégration</th><td>Un lecteur à placer sur votre site, sans cookie ni lecture automatique</td></tr>
+        <tr><th scope="row"><a href={CODE_SOURCE} target="_blank" rel="noopener noreferrer">Code source</a></th><td>Tout le code du site, libre (licence AGPL), pour vérifier ce qu’il fait</td></tr>
       </tbody>
     </table>
   </div>
